@@ -23,7 +23,7 @@ class RADAR_sub(Node):
             poses_msg.poses.append(p)
     
         poses_msg.header.stamp = self.get_clock().now().to_msg()
-        poses_msg.header.frame_id = 'rslidar'
+        poses_msg.header.frame_id = 'velodyne32'
         self.get_logger().info(f'{n}')
         self.publisher.publish(poses_msg)
 
