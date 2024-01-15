@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'radar_reader = radar_tester.radar_reader:main'
+            'radar_reader = radar_tester.radar_reader:main',
+            'pose_fixer = radar_tester.fix_pose:main' 
         ],
     },
 )
