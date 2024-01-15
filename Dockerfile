@@ -21,6 +21,7 @@ RUN git clone https://github.com/ros-perception/radar_msgs.git /home/radar_ws/sr
 RUN git clone https://github.com/ahmad12hamdan99/radar_tester /home/radar_ws/src/radar_tester/
 RUN git clone https://github.com/ros-industrial/ros2_canopen.git /home/radar_ws/src/ros2_canopen/
 RUN rosdep install --from-paths radar_ws/src/ros2_canopen --ignore-src -r -y
+RUN apt-get install can-utils
 
 
 WORKDIR /home/radar_ws
