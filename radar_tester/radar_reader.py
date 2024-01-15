@@ -27,12 +27,14 @@ class RADAR_sub(Node):
             p.position.x = i.position.x + 2.2
             poses_msg.poses.append(p)
 
-            if i.NO_CLASSIFICATION == 32001:
+            if i.classification == 32001:
                 cars.poses.append(p)
                 self.get_logger().info(f'Found a car!!!!')
-            elif i.NO_CLASSIFICATION == 32007:
+            elif i.classification == 32007:
                 pedestrians.poses.append(p)
                 self.get_logger().info(f'Found a pedestrian!!!!')
+        
+            self.get_logger().info(f'{i.classification}, {i.NO_CLASSIFICATION}, {i.STATIC}, {i.DYNAMIC}')
     
         poses_msg.header.stamp = self.get_clock().now().to_msg()
         poses_msg.header.frame_id = 'velodyne32'
