@@ -14,13 +14,12 @@ class RADAR_sub(Node):
 
     def listener_callback(self, msg):
         out_msg = PoseArray()
-        in_msg = msg
         in_poses = msg.poses
         for i in in_poses:
             p = Pose()
             p.position.z = i.position.z - 0.8
             p.position.y = i.position.y
-            p.position.x = i.position.x + 2.2
+            p.position.x = i.position.x + 2.6
             out_msg.poses.append(p)
     
         out_msg.header.stamp = self.get_clock().now().to_msg()
